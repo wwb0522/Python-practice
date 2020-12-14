@@ -31,6 +31,9 @@ def Clear():
         color = 'white'
     else:
         easygui.msgbox("Timer still running! Please stop it first", title="Warning!!")
+
+def Alarm():
+    pass
         
 
 def main():
@@ -44,6 +47,8 @@ def main():
     frame.add_button('Start', Start, 100)
     frame.add_button('Stop', Stop, 100)
     frame.add_button('Clear', Clear, 100)
+    frame.add_button('Set Alarm', Alarm, 100)
+
     frame.start()
 
 if __name__ == '__main__':
