@@ -38,8 +38,6 @@ def Alarm():
     top.withdraw()
     top.geometry("100x100")
     messagebox.showwarning("Warning!", "Timer still running! Please stop it first")
-    
-    
 
 def main():
     global time, color
