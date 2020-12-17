@@ -1,5 +1,6 @@
-import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
-import easygui
+import SimpleGUICS2Pygame.simpleguics2pygame as simplegui 
+import tkinter as tk
+from tkinter import messagebox
 
 def timerHandler():
     global time
@@ -30,11 +31,15 @@ def Clear():
         time = 0
         color = 'white'
     else:
-        easygui.msgbox("Timer still running! Please stop it first", title="Warning!!")
+        Alarm()
 
 def Alarm():
-    pass
-        
+    top = tk.Tk()
+    top.withdraw()
+    top.geometry("100x100")
+    messagebox.showwarning("Warning!", "Timer still running! Please stop it first")
+    
+    
 
 def main():
     global time, color
@@ -47,8 +52,6 @@ def main():
     frame.add_button('Start', Start, 100)
     frame.add_button('Stop', Stop, 100)
     frame.add_button('Clear', Clear, 100)
-    frame.add_button('Set Alarm', Alarm, 100)
-
     frame.start()
 
 if __name__ == '__main__':
