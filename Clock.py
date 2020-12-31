@@ -1,6 +1,8 @@
 import turtle
 import datetime
 
+weekday = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
 def shapeHand(name, length):
     turtle.reset()
     #turtle.penup()
@@ -18,17 +20,24 @@ def createClock(radius):
     printer = turtle.Turtle()
     printer.hideturtle()
     printer.penup()
-    printer.forward(120)
+    #adding number
+    printer.forward(130)
     printer.write('12', align='center', font=("Courier", 14, "bold"))
-    printer.back(270)
+    printer.back(285)
     printer.write('6', align='center', font=("Courier", 14, "bold"))
     printer.home()
     printer.right(95)
-    printer.forward(140)
+    printer.forward(150)
     printer.write('3', align='center', font=("Courier", 14, "bold"))
     printer.left(5)
-    printer.back(270)
+    printer.back(295)
     printer.write('9', align='center', font=("Courier", 14, "bold"))
+    #adding date 
+    printer.home()
+    printer.forward(70)
+    printer.write(weekday[datetime.datetime.today().weekday()] , align='center', font=("Courier", 18, "bold"))
+    printer.forward(20)
+    printer.write(datetime.datetime.today().date() , align='center', font=("Courier", 18, "bold"))
     for i in range(60):
         turtle.penup()
         turtle.forward(radius)
@@ -50,7 +59,7 @@ def startTick(secondHand, minuteHand, hourHand):
     printer.hideturtle()
     printer.penup()
     today = datetime.datetime.today()
-    second = today.second + today.microsecond * 1e-6
+    second = today.second 
     minute = today.minute + second / 60
     hour = (today.hour + minute / 60) % 12
     secondHand.setheading(6 * second)
